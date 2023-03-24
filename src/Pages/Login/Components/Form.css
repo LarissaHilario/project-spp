@@ -45,6 +45,12 @@
     padding-top: 30px;
 }
 
+.inputs2{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
 .inputs input{
     width: 350px;
     height: 60px;
@@ -59,6 +65,17 @@
     font-size: 20px;
     margin-top: 20px;
     padding-left: 15px;
+    outline: none;
+}
+
+.inputs2 input::placeholder{
+    color: white;
+    font-family: Unica one;
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 15px;
+    border-bottom: none;
+    outline: none;
 }
 
 .olvi{
