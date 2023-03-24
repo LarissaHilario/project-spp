@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Unica+One&display=swap');
+
+.todo{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+    background-color: white;
+    width: 680px;
+    height: 500px;
+    margin-left: 2%;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+.iconPagina{
+    margin-top: 10%;
+    padding-right: 20px;
+}
+
+.titulo{
+    color: #5C3DA4;
+    font-family: Unica one;
+    font-size: 34px;
+    margin-top: 5%;
+}
+
+.formulario h2{
+    color: #5C3DA4;
+    font-family: Roboto;
+}
+
+.subtit{
+    display: flex;
+    justify-content: center;
+}
+
+.inputs{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.inputs input{
+    width: 350px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    background-color: #D6C6FC;
+}
+
+.inputs input::placeholder{
+    color: white;
+    font-family: Unica one;
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 15px;
+}
+
+.olvi{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 24%;
+}
+
+.olvi h4{
+    color: #B89CF9;
+    font-family: Unica one;
+    font-size: 20px;
+}
+
+.btnIniciar{
+    display: flex;
+    justify-content: center;
+}
+
+.btnIniciar button{
+    background-color: #5C3DA4;
+    width: 350px;
+    height: 60px;
+    color: white;
+    font-family: Roboto;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.container{
+    margin-top: 30px;
+    margin-right: 40px;
+    background-color: #D6C6FC;
+    border-radius: 316.5px 316.5px 0px 0px;
+    width: 600px;
+    height: 630px;
+}
