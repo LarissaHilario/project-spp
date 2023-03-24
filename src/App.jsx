@@ -1,10 +1,14 @@
-import Home from "./Pages/Home/Home"
 
+import { ThemeProvider } from '@mui/material';
+import AppRouter from './Routes/AppRouter';
+import Theme from '/themes/Theme';
 function App() {
   
 
   return (
-   <Home></Home>
+    <ThemeProvider theme={Theme}>
+      <AppRouter />
+    </ThemeProvider>
   )
 }
 
