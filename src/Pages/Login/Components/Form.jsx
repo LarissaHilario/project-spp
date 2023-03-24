@@ -30,7 +30,7 @@ export const Form = () => {
                         <h4>¿OLVIDASTE TU CONTRASEÑA?</h4>
                     </div>
                     <div className="btnIniciar">
-                        <button>Iniciar Sesións</button>
+                        <button>Iniciar Sesión</button>
                     </div>
                 </div>
                 <div className="container">
