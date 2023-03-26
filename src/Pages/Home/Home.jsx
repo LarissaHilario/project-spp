@@ -1,10 +1,11 @@
+import People from "./Components/Pacientes"
 
 
 const Home=()=>{
 
     return(
     <div className="App">
-      <button class="btn btn-primary">Button</button>
+     <People></People>
     </div>
     )
 }

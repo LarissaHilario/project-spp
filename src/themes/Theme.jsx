@@ -1,4 +1,6 @@
-import { createTheme } from '@mui/material';
+
+import { createTheme } from '@mui/material/styles';
+import UnicaOneRegular from '../assets/UnicaOne-Regular.ttf'
 
 const Theme = createTheme({
   palette: {
@@ -11,7 +13,9 @@ const Theme = createTheme({
     third: {
         main: '#FE92A1',
       },
+    
   },
 });
+
 
 export default Theme;
