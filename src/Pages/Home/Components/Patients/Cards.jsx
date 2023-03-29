@@ -11,21 +11,15 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import { Avatar } from '@mui/material';
 
-const Cards=()=>{  
+const Cards=({Name, Age})=>{  
     return(
         <div>
-    <Card sx={{ display: 'flex', maxWidth: 350, maxHeight: 300, borderRadius:4,background:'none',  }} >
-      <CardMedia>
-      <Avatar
-        alt="Aylin"
-        src="/aylin.png"
-        sx={{ width: 60, height: 60, marginTop:1 }}
-      />
-      </CardMedia>
-      <CardContent sx={{ flex: '1 0 auto' }}>
+    <Card sx={{ display: 'flex', maxWidth: 350, maxHeight: 300, borderRadius:5,background:'#F1EEF5', boxShadow: 'none'}} >
+      <CardContent sx={{ flex: '1 0 auto', width:400, height:100, alignContent:'center'}}>
           <Typography className='Name'component="div" variant="h5">
             Aylin Malpica
           </Typography>
+          <Typography variant='subtitle' align='center'>19 años</Typography>
         </CardContent>
     </Card>
         </div>

@@ -51,7 +51,7 @@ const People=()=> {
               <div className='headerContainer'>
            
             <h1 className='title'>Pacientes</h1>
-
+            <span className='sub'>Selecciona un paciente para añadir su receta</span>
               </div>
               <div className='bodyContainer'>
                 <Cards></Cards>

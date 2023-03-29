@@ -24,9 +24,9 @@ const AppRouter = () => {
         <Route
           path='/*'
           element={
-            <PrivateRoutes>
+            
             <DashBoardRoutes />
-          </PrivateRoutes>
+          
             
           }
         />
