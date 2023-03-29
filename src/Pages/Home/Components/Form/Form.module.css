@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+*{
+    font-family: Unica one ;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+
+ .Container{
+    padding: 2%;
+    
+   
+ }
+
+ .title{
+    font-size: 3.5em;
+    text-align: center;
+ }

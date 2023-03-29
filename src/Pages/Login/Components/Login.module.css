@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Unica+One&display=swap');
+
+.todo{
+    display: flex;
+    justify-content: center;
+   
+}
+
+.formulario{
+    background-color: white;
+    width: 680px;
+    height: 500px;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+.iconPagina{
+    margin-top: 10%;
+    margin-left: -10%;
+}
+
+.titulo{
+    color: #5C3DA4;
+    font-family: Unica one;
+    font-size: 34px;
+    margin-top: 13%;
+    padding-left: 25px;
+   
+}
+
+.formulario h2{
+    color: #5C3DA4;
+    font-family: Roboto;
+}
+
+.subtit{
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    margin-left: -1%;
+    padding: 2%;
+}
+
+.inputs2{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+
+
+.inputs input::placeholder{
+    color: white;
+    font-family: Unica one;
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 15px;
+    outline: none;
+}
+
+.inputs2 input::placeholder{
+    color: white;
+    font-family: Unica one;
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 15px;
+    border-bottom: none;
+    outline: none;
+}
+
+.olvi{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 24%;
+}
+
+.olvi h4{
+    color: #B89CF9;
+    font-family: Unica one;
+    font-size: 20px;
+}
+
+.btnIniciar{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    padding-right: 3px;
+}
+
+.btnIniciar button{
+    background-color: #5C3DA4;
+    color: white;
+
+}
+
+.container{
+    margin-top: 3%;
+    margin-right: 40px;
+    background-color: #D6C6FC;
+    border-radius: 316.5px 316.5px 0px 0px;
+    width: 600px;
+    height: 630px;
+}
+
+.image{
+  margin-left: 32.5%;
+}
+
+/*Responsive*/
+
+@media screen and (max-width: 1024px) {
+    .containerElements {
+      grid-template-columns: 100%;
+      grid-template-rows: 27% 73%;
+    }
+  
+    .info {
+      width: 100%;
+      flex-direction: row;
+      padding: 8%;
+      margin: 5% 0;
+    }
+  
+    .loginForm {
+      width: 65%;
+      height: 72%;
+      margin: 2% auto;
+      padding: 12%;
+    }
+  
+    .loginForm > h3 {
+      font-size: 2.8rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .containerElements {
+      grid-template-columns: 100%;
+      grid-template-rows: 27% 73%;
+    }
+  
+    .info {
+      width: 100%;
+      flex-direction: row;
+      padding: 8%;
+      margin: 5% 0;
+    }
+  
+    .info > h1 {
+      font-size: 1.8rem;
+    }
+  
+    .info > img {
+      width: 100px;
+    }
+  
+    .loginForm {
+      width: 88%;
+      height: 75%;
+      margin: 0 auto;
+      padding: 12%;
+    }
+  
+    .loginForm > h3 {
+      font-size: 1.5rem;
+    }
+  }
+  

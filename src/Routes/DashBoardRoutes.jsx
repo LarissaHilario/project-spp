@@ -17,7 +17,7 @@ const DashBoardRoutes = () => {
         <Route path='/Error' element={<Page404/>}/>
         <Route
           path='/*'
-          element={<Navigate to={('/Error')} />}
+          element={<Navigate to={('/Home')} />}
         />
       </Routes>
     </>

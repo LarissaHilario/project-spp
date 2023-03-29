@@ -16,16 +16,17 @@ const AppRouter = () => {
         <Route
           path='/login'
           element={
-           
-              <Login />
-           
+            <PublicRoutes>
+              <Login/>
+            </PublicRoutes>
           }
         />
         <Route
           path='/*'
           element={
-           
-              <DashBoardRoutes />
+            <PrivateRoutes>
+            <DashBoardRoutes />
+          </PrivateRoutes>
             
           }
         />

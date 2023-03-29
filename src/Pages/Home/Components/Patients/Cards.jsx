@@ -14,16 +14,7 @@ import { Avatar } from '@mui/material';
 const Cards=()=>{  
     return(
         <div>
-    <Card sx={{ display: 'flex', maxWidth: 350, maxHeight: 300, borderRadius:4}}>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography className='Name'component="div" variant="h5">
-            Aylin Malpica
-          </Typography>
-          
-        </CardContent>
-        
-      </Box>
+    <Card sx={{ display: 'flex', maxWidth: 350, maxHeight: 300, borderRadius:4,background:'none',  }} >
       <CardMedia>
       <Avatar
         alt="Aylin"
@@ -31,8 +22,11 @@ const Cards=()=>{
         sx={{ width: 60, height: 60, marginTop:1 }}
       />
       </CardMedia>
-       
-      
+      <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography className='Name'component="div" variant="h5">
+            Aylin Malpica
+          </Typography>
+        </CardContent>
     </Card>
         </div>
 

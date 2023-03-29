@@ -1,8 +1,16 @@
+import { Typography } from "@mui/material"
 
 
 const Page404 =()=>{
     return(
-        <h1>SOY un 404</h1>
+        <div className="containerBox">
+            <Typography variant="h4">¡Oh! Lo sentimos esta ruta no existe o no ha sido encontrada</Typography>
+            <div className="containerImage">
+                <img src="/doctores.png"></img>
+
+            </div>
+
+        </div>
     )
 }
 

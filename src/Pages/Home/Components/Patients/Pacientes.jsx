@@ -13,6 +13,7 @@ import {
 
 import './Pacientes.css'
 import Cards from './Cards';
+import Form from '../Form/Form';
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
@@ -48,25 +49,9 @@ const People=()=> {
                 }}
               > 
               <div className='headerContainer'>
-                <div className='title'>
-                  <Typography variant='H1' fontSize={45} className='title' fontWeight={500}>Pacientes</Typography>
-                </div>
-                <br/>
-                <div className='text'>
-                  <span>Selecciona un paciente para abrir su expediente</span>
-                </div>
-                 
-                 <div className='button'>
-                  <Button 
-                 className='btn'
-                 variant='contained' 
-                 color='secondary' 
-                 startIcon={<AddIcon/>}
-                 sx={{borderRadius:2, fontSize:20}}
-                 >
-                 <span>Añadir Paciente</span> 
-                 </Button>
-                 </div>
+           
+            <h1 className='title'>Pacientes</h1>
+
               </div>
               <div className='bodyContainer'>
                 <Cards></Cards>
@@ -75,7 +60,11 @@ const People=()=> {
                  
       
         </Grid>
+        <Grid item xs={8}>
+
+        <Form></Form>
       
+      </Grid>
       </Grid>
     </Box>
     </div>

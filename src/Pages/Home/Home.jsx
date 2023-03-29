@@ -1,4 +1,4 @@
-import People from "./Components/Pacientes"
+import People from "./Components/Patients/Pacientes"
 
 
 const Home=()=>{

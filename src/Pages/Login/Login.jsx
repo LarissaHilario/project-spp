@@ -1,9 +1,13 @@
+import  Form from "./Components/Form"
 
 
-const Login =()=>{
-     return(
-        <h1>Hola soy un login</h1>
-     )
+const Login = () => {
+    
+    return(
+        <>
+            <Form></Form>
+        </>
+    )
 }
 
 export default Login
