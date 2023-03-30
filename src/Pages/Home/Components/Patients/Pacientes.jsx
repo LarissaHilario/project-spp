@@ -14,6 +14,13 @@ import {
 import './Pacientes.css'
 import Cards from './Cards';
 import Form from '../Form/Form';
+import { cleanPatients } from '../../../../store/Slices/patientsSlice';
+import { logout } from '../../../../store/Slices/authSlice';
+import { deleteToken } from '../../../../Helpers/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
@@ -34,8 +41,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const People=()=> {
+  const dispatch = useDispatch();
   const classes = useStyles();
-  
+
+  const navigate = useNavigate();
+  const { patients } = useSelector(state => state.patients);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(cleanPatients());
+    deleteToken();
+  };
 
   return (
     <div className='container'>
@@ -51,6 +67,8 @@ const People=()=> {
               <div className='headerContainer'>
            
             <h1 className='title'>Pacientes</h1>
+            <Button onClick={handleLogout}>Salir</Button>
+            <br></br>
             <span className='sub'>Selecciona un paciente para añadir su receta</span>
               </div>
               <div className='bodyContainer'>

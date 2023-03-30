@@ -23,9 +23,16 @@
     height: 20%;
     padding: 2%;
     
+    
    
   }
 
+  .sub{
+  
+    padding: 4%;
+    font-size: 1.5em;
+    text-align: center;
+  }
 
 .bodyContainer{
   display: flex;

@@ -1,55 +1,67 @@
 import * as React from "react";
 import { useState } from "react";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Visibility from "@mui/icons-material/Visibility";
+import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
-import AddIcon from "@mui/icons-material/Add";
+import {
+  Avatar,
+  Button,
+  Stack,
+} from "@mui/material";
+
 import styles from "./login.module.css";
-import { setTokens } from '../../../Helpers/auth';
-import { axiosInstance } from '../../../Helpers/axiosInstance';
-import { login } from '../../../store/Slices/authSlice';
-import { border, borderRadius } from "@mui/system";
-import { Avatar, Button, Fab, FilledInput, FormControl, InputLabel, OutlinedInput, Stack } from "@mui/material";
+import { setTokens } from "../../../Helpers/auth";
+import { axiosInstance } from "../../../Helpers/axiosInstance";
+import { login } from "../../../store/Slices/authSlice";
+import axios from "axios";
 
 const Form = () => {
+  const dispatch = useDispatch();
   const [file, setFile] = useState();
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [state, setState] = useState({
+    username: "",
+    password: "",
+  });
 
-const handleSubmit = async e => {
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value,
+    });
+
+    console.log(value);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, password } = e.target;
+    const userData = {
+      username: state.username,
+      password: state.password,
+    };
     await axiosInstance
-      .post('login/', {
-        username: username.value,
-        password: password.value,
-      })
-      .then(resp => {
+      .get("user/login", userData)
+      .then((resp) => {
         const { data } = resp;
-        setTokens(data.token);
+        setTokens(data.message.token);
         dispatch(
           login({
-            accessToken: data.token,
+            token: data.message.token,
             status: resp.status,
           })
         );
       })
       .catch(({ response }) => {
-       console.log(error)
+        console.log("error");
       });
   };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
   const handleSubmitFile = (event) => {
     event.preventDefault();
-    let formdata = new FormData();
-    formdata.append("file", file);
-    axios.post("http://3.19.59.225:8080/playlist/upload/photo", formdata).then(
+    let uploadPhoto = new FormData();
+    uploadPhoto.append("userPhoto", file);
+    uploadPhoto.append("id", 1);
+    axios.post("http://18.116.180.141:1234/user/uploadPhoto",uploadPhoto).then(
       (res) => {
         console.log(res.data.data);
         setUrl(res.data.data);
@@ -64,7 +76,6 @@ const handleSubmit = async e => {
     console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   };
-
   return (
     <>
       <div className={styles.todo}>
@@ -85,7 +96,7 @@ const handleSubmit = async e => {
               <label htmlFor="upload-photo">
                 <Avatar
                   alt="Remy Sharp"
-                  src={file}
+                  src={'/'+file}
                   sx={{ width: 80, height: 80 }}
                 >
                   <input
@@ -93,6 +104,7 @@ const handleSubmit = async e => {
                     id="upload-photo"
                     name="upload-photo"
                     type="file"
+                    onChange={handleChangeForm}
                   />
                 </Avatar>{" "}
               </label>
@@ -101,7 +113,7 @@ const handleSubmit = async e => {
                   variant="contained"
                   component="label"
                   sx={{ height: 40, marginLeft: 2, marginTop: 3 }}
-                  onClick={handleSubmit}
+                  onClick={handleSubmitFile}
                 >
                   Subir imagen
                 </Button>
@@ -110,6 +122,7 @@ const handleSubmit = async e => {
           </div>
           <div className={styles.input}>
             <TextField
+              name="username"
               variant="outlined"
               color="primary"
               label="Correo electrónico"
@@ -118,26 +131,29 @@ const handleSubmit = async e => {
                 background: " #D6C6FC",
                 borderRadius: "5px",
               }}
+              value={state.username}
+              onChange={handleChange}
             ></TextField>
           </div>
           <div className={styles.input}>
-        
-          <TextField
+            <TextField
+              type="password"
+              name="password"
               variant="outlined"
               color="primary"
-              label="Correo electrónico"
+              label="Contraseña"
+              value={state.password}
+              onChange={handleChange}
               sx={{
                 width: "43%",
                 background: " #D6C6FC",
                 borderRadius: "5px",
               }}
             ></TextField>
-                
-             
-             
           </div>
           <div className={styles.btnIniciar}>
             <Button
+              onClick={handleSubmit}
               variant="contained"
               color="primary"
               sx={{ borderRadius: 2, width: "42%", height: 50 }}

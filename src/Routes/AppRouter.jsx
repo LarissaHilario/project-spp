@@ -8,6 +8,9 @@ import PrivateRoutes from './PrivateRoutes';
 import PublicRoutes from './PublicRoutes';
 
 const AppRouter = () => {
+  const authState = useSelector(state => state.authState);
+  useEffect(() => {}, [authState]);
+
 
   return (
     <BrowserRouter>
@@ -24,10 +27,9 @@ const AppRouter = () => {
         <Route
           path='/*'
           element={
-            
-            <DashBoardRoutes />
-          
-            
+               <PrivateRoutes>
+                <DashBoardRoutes />
+               </PrivateRoutes>
           }
         />
       </Routes>
