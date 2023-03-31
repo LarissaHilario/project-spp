@@ -11,9 +11,25 @@ import {
 
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import styles from './Prescription.module.css'
+import { useEffect, useState } from "react";
 
 
 const Prescription = () => {
+  const [posts, setPosts] = useState();
+
+  useEffect(() => {
+    fetch(`http://18.188.198.17:/temperature`)
+       .then((response) => response.json())
+       .then((data) => {
+          console.log(data.data);
+          setPosts(data.data);
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
+ }, []);
+
+
     return (
       <div className={styles.container}>
         <div className={styles.header}>
@@ -35,6 +51,7 @@ const Prescription = () => {
             <TextField
               disabled
               label="Temperatura"
+              value={posts}
               id="temp"
               sx={{ m: 1, width: "20ch" }}
               InputProps={{

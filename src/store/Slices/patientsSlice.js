@@ -9,7 +9,7 @@ export const PacientesSlice = createSlice({
   reducers: {
     chargeerPatients: (state, action) => {
       state.patients = action.payload.patients;
-      state.total = state.patients.data.length;  
+      state.total = state.patients.length;  
     },
     cleanPatients: state => {
       state.patients = null;

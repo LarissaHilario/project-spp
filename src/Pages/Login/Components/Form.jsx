@@ -17,7 +17,7 @@ import axios from "axios";
 const Form = () => {
   const dispatch = useDispatch();
   const [file, setFile] = useState();
-
+ const Larissa = useState('Larissa')
   const [state, setState] = useState({
     username: "",
     password: "",
@@ -35,24 +35,28 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const userData = {
       username: state.username,
       password: state.password,
     };
+    console.log(userData)
     await axiosInstance
-      .get("user/login", userData)
-      .then((resp) => {
+      .post("user/login",userData
+      )
+      .then((resp) => {     
         const { data } = resp;
+        console.log(data)
         setTokens(data.message.token);
         dispatch(
           login({
-            token: data.message.token,
+            accessToken: data.message.token,
             status: resp.status,
           })
         );
-      })
+      }) 
       .catch(({ response }) => {
-        console.log("error");
+        console.log(response.data.message);
       });
   };
 
@@ -61,7 +65,7 @@ const Form = () => {
     let uploadPhoto = new FormData();
     uploadPhoto.append("userPhoto", file);
     uploadPhoto.append("id", 1);
-    axios.post("http://18.116.180.141:1234/user/uploadPhoto",uploadPhoto).then(
+    axios.post("http://3.132.245.255:1234/user/uploadPhoto",uploadPhoto).then(
       (res) => {
         console.log(res.data.data);
         setUrl(res.data.data);

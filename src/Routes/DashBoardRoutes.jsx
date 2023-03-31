@@ -15,12 +15,12 @@ const DashBoardRoutes = () => {
   const dispatch = useDispatch();
   const patients = useSelector(state => state.patients);
   
-  const access_token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('token');
   useEffect(() => {
-    if (patients.patient === null){
+    if (patients.patients === null){
       dispatch(chargingPatients());
     }
-    dispatch(login({access_token, isAuthenticathed: true}));
+    dispatch(login({token, isAuthenticathed: true}));
   },[]);
 
   return (
