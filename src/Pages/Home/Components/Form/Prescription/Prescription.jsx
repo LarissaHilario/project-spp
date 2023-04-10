@@ -12,22 +12,14 @@ import {
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import styles from './Prescription.module.css'
 import { useEffect, useState } from "react";
-
+import { useSelector } from 'react-redux';
+import { axiosInstance } from "../../../../../Helpers/axiosInstance";
+import { useParams } from "react-router-dom";
 
 const Prescription = () => {
-  const [posts, setPosts] = useState();
+  const [post, setPosts]=useState()
 
-  useEffect(() => {
-    fetch(`http://18.188.198.17:/temperature`)
-       .then((response) => response.json())
-       .then((data) => {
-          console.log(data.data);
-          setPosts(data.data);
-       })
-       .catch((err) => {
-          console.log(err.message);
-       });
- }, []);
+  
 
 
     return (
@@ -51,7 +43,7 @@ const Prescription = () => {
             <TextField
               disabled
               label="Temperatura"
-              value={posts}
+           
               id="temp"
               sx={{ m: 1, width: "20ch" }}
               InputProps={{
@@ -71,7 +63,7 @@ const Prescription = () => {
           defaultValue="Escribe aquí tu receta"
           sx={{ m: 1, width: "110ch" }}
         />
-        <Button variant="contained" sx={{m:1, width:'98.7%'}}>
+        <Button variant="contained" sx={{m:1, width:'98.7%'}} className='button'>
           Enviar Receta
         </Button>
           </Box>

@@ -15,6 +15,7 @@ export const chargingPatients = token => {
         dispatch(
           chargeerPatients({
              patients: data.message,
+             temp: data.message.filter(card=> card.temperature),
           
           })
         );
@@ -29,17 +30,17 @@ export const chargingActiveForm = id => {
   return async dispatch => {
     localStorage.setItem('id', id);
     await axiosInstance
-      .get('http://3.132.245.255:1234/patients/' + id)
+      .get('http://3.132.245.255:1234/patient/' + id)
       .then(({ data }) => {
         dispatch(
           addActiveForm({
             activeForm: {
-              id: data.id,
-              name: data.nombre,
-              sexo: data.sexo,
-              weight:data.weight,
-              height: data.height,
-              email: data.email
+              id: data.message.id,
+              name: data.message.nombre,
+              sexo: data.message.sexo,
+              weight:data.message.weight,
+              height: data.message.height,
+              email: data.message.mail
             },
           })
         );

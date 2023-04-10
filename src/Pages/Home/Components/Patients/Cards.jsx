@@ -9,15 +9,17 @@ import Typography from "@mui/material/Typography";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
-import { Avatar, Stack } from "@mui/material";
+import { Avatar, CardActionArea, Stack } from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
-const Cards = ({ Name, Age, Alt }) => {
+const Cards = ({ Name, Age, id}) => {
+  
   return (
     <div>
       <Card
         sx={{
           display: "flex",
-          maxWidth: 350,
           maxHeight: 300,
           borderRadius: 5,
           background: "#F1EEF5",
@@ -25,36 +27,41 @@ const Cards = ({ Name, Age, Alt }) => {
           p: 0,
         }}
       >
+        <CardActionArea  component={RouterLink} to={'/Home/' + id}>
         <CardContent
           sx={{
             flex: "1 0 auto",
-            width: 400,
+            width:500,
             height: 100,
-            alignContent: "center",
+           
           }}
         >
           <Stack direction='row'>
           <Avatar
-            alt={Alt}
-            
+            alt={Name}
             sx={{ width: 56, height: 56 }}
+            src="/static/images/avatar/1.jpg"
+            
           />
           <Stack direction='column'>
           <Typography
             className="Name"
             component="div"
-            variant="h5"
-            textAlign="center"
-            sx={{ marginLeft: 5, marginTop:1 }}
+            variant="h6"
+            textAlign='center'
+            fontSize={20}
+            value={get(1)}
+            sx={{ marginLeft: 7, marginTop:1 }}
           >
             {Name}
           </Typography>
           <Typography
             variant="subtitle"
-            textAlign="center"
-            sx={{ marginLeft: 5 }}
+            textAlign='center'
+            fontSize={20}
+            sx={{ marginLeft: 5, marginTop:1 }}
           >
-            {Age}
+            {Age} años
           </Typography>
 
           </Stack>
@@ -62,6 +69,7 @@ const Cards = ({ Name, Age, Alt }) => {
           </Stack>
           
         </CardContent>
+        </CardActionArea>
       </Card>
     </div>
   );

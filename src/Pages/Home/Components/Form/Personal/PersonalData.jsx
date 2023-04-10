@@ -18,9 +18,9 @@ import FileName from "@mui/icons-material/DriveFileRenameOutline";
 import styles from "./PersonalData.module.css";
 import { useState } from "react";
 
-const PersonalData = ({}) => {
+const PersonalData = ({Name,age,email,height,weigth,Sexo}) => {
 
-  const [file, setFile] = useState(); 
+  
   const sexo = [
     {
       value: 'Woman',
@@ -59,16 +59,14 @@ const PersonalData = ({}) => {
           autoComplete="off"
         >
           <div>
-            
-              
-                
               <Stack direction="column" spacing={4}>
               <TextField
-                disabled={true}  
+                disabled={false}  
                 id="name"
                 label="Nombre completo del paciente"
                 variant="outlined"
                 sx={{ width: "108ch"}}
+                value={Name}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -80,6 +78,7 @@ const PersonalData = ({}) => {
               <TextField
                 disabled
                 id="email"
+                value={email}
                 label="Correo electrónico"
                 variant="outlined"
                 sx={{ width: "108ch"}}
@@ -91,11 +90,6 @@ const PersonalData = ({}) => {
                   ),
                 }}
               />
-
-             
-              
-              
-              
               
             </Stack>
           </div>
@@ -103,6 +97,7 @@ const PersonalData = ({}) => {
           <TextField
           disabled
             id="age"
+            value={age}
             label="Edad"
             type="number"
             sx={{ width: "17%" }}
@@ -112,6 +107,7 @@ const PersonalData = ({}) => {
           disabled
             label="Peso"
             id="width"
+            value={weigth}
             sx={{ m: 1, width: "27ch" }}
             InputProps={{
               startAdornment: (
@@ -128,6 +124,7 @@ const PersonalData = ({}) => {
             label="Estatura"
             id="height"
             sx={{ m: 1, width: "28ch" }}
+            value={height}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -140,6 +137,7 @@ const PersonalData = ({}) => {
           <TextField
           disabled
             label="Sexo"
+            value={Sexo}
             select
             id="sex"
             sx={{ m: 1, width: "28ch" }}

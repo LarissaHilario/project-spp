@@ -3,8 +3,16 @@ import PersonalData from "./Personal/PersonalData"
 
 import Styles from './Form.module.css'
 import Prescription from "./Prescription/Prescription"
-
+import { axiosInstance } from "../../../../Helpers/axiosInstance";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Form=()=>{
+
+  const { patients } = useSelector(state => state.patients);
+  
+
+
     return(
 
         <div className={Styles.Container}>
@@ -14,12 +22,17 @@ const Form=()=>{
             <br>
             </br>
             <div className="bodycontainer">
-                <PersonalData></PersonalData>
+          
+                <PersonalData 
+                
+              >
+                </PersonalData>
                 <Prescription/>
             </div>
         </div>
 
     )
 }
+
 
 export default Form

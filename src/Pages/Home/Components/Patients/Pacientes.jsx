@@ -19,6 +19,7 @@ import { logout } from '../../../../store/Slices/authSlice';
 import { deleteToken } from '../../../../Helpers/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import ManyCards from './ManyCards';
 
 
 const useStyles = makeStyles(theme => ({
@@ -72,7 +73,7 @@ const People=()=> {
             <span className='sub'>Selecciona un paciente para añadir su receta</span>
               </div>
               <div className='bodyContainer'>
-                <Cards></Cards>
+              <ManyCards></ManyCards>
               </div>
 
                  
